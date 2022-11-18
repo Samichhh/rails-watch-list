@@ -1,0 +1,62 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "https://img.freepik.com/vecteurs-libre/tasse-graphique-illustration-pop-corn_53876-8059.jpg?t=st=1668766641~exp=1668767241~hmac=0dc87a237750fa564dcb1a39621ad2fd3a7f992746938c0eacacdf3bfc9f5087" %>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <%# if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "My lists", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "New list", new_list_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+          </li>
+        <%# else %>
+          <!--li class="nav-item"-->
+            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <!--/li-->
+        <%# end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.slate.fr/sites/default/files/styles/1060x523/public/cinema-prix-billets.jpg)">
+  <h1> Save any kind of movies </h1>
+    <p>Classic</p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <ul class="list-group mb-3">
+      </ul>
+      <%# <%= link_to "Add a new lists", new_lists_path, class: 'btn btn-primary' %>
+      </div>
+      <h2>My lists</h2>
+      <div class="cards">
+
+          <ul class="list-group mb-3">
+              <% @lists.each do |list| %>
+              <div style="padding: 20px; border: solid black 3">
+                <li class="list-group-item">
+                  <%= link_to list.name, list_path(list) %>
+                </li>
+              </div>
+              <% end %>
+          </ul>
+
+  </div>
